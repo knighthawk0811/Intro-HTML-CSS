@@ -125,6 +125,18 @@ selector {
         width: calc(100% - 2em);
     } 
 
+    #bg-image {
+        height: 300px;
+        width: 400px;
+
+        background-color: red;
+        background-image: url(https://www.thewebmaster.com/img/dev/dev-news/2016/02/70-percent-loaded_XNReciq.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+    }
+
 /*--------------------------------------------------------------
 # Footer Area
 --------------------------------------------------------------*/
