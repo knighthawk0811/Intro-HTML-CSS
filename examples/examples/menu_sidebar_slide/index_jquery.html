@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- this is an html comment -->
+		<title>Filter P2 | CIS 1310</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<script>
+			jQuery(document).ready(function(){
+				$("#hamburger").click(function(){
+					$("body").toggleClass( "hamburger" );
+				});
+			});
+		</script>
+
+		<style type="text/css">
+
+			/* JPNP 2017 */
+			/*
+			** my style organization
+			layout
+
+			content
+
+			background
+
+			other
+			*/
+			/**********
+			layout
+			**********/
+			/* apply a natural box layout model to all elements, but allowing components to change */
+			html {
+			  box-sizing: border-box;
+			}
+			*, *:before, *:after {
+			  box-sizing: inherit;
+			}
+			body {
+				margin:0;
+				padding:0;
+
+				background:#586D8F url(http://www.psdgraphics.com/file/2016/winter-background.jpg);
+				background-attachment:fixed;
+				background-size:cover;
+			}
+			#wrapper {
+				margin:0 auto;
+				position:relative;
+				width:100%;
+			}
+			/* hamburger */
+			#hamburger {
+				height:32px;
+				margin:10px;
+				position:relative;
+				width:32px;
+
+				background:url(social-media-icons-32x32.png);
+				background-size:500px 200px;
+				background-position:-250px -150px;
+
+				cursor:pointer;
+			}
+			body.hamburger #hamburger {
+				background-color:#EA2B7A;
+				border-radius:7px;
+			}
+			#header {
+				height:10rem;
+				padding:0;
+				position:relative;
+
+				text-align:center;
+				text-shadow:0px 0px 2px #ffffff;
+			}
+			#header h1 {
+				margin:0.5rem auto;
+				padding:20px;
+				width:100%;
+
+				transform:scale(0.5,0.5);
+				transition:all 1000ms ease;
+			}
+			#header h1 img.logo {
+				height:6rem;
+				margin:0 auto;
+				width:auto;
+			}
+			body:hover #header h1{
+				transform:scale(1,1);
+			}
+			#content {
+				padding:0;
+				position:relative;
+				width:100%;
+
+				background:none;
+
+				overflow:hidden;
+			}
+			#sidebar-first {
+				bottom:0px;
+				display:inline-block;
+				left:0px;
+				min-height:1.5rem;
+				margin:0;
+				padding:0;
+				position:absolute;
+				top:0px;
+				width:0px;
+
+				background:none;
+
+				overflow:hidden;
+				transition: all 750ms ease;
+			}
+			body.hamburger #sidebar-first {
+				width:250px;
+			}
+			#main {
+				min-height:80vh;
+				margin:0 0 0 0;
+				padding:15px;
+				position:relative;
+				left:0px;
+				right:0px;
+
+				background:#ffffff;
+
+				overflow:hidden;
+				transition: all 750ms ease;
+			}
+			body.hamburger #main {
+				left:250px;
+				right:-250px;
+			}
+			#sidebar-second {
+				min-height:10vh;
+				margin:0;
+				padding:15px;
+				position:relative;
+				left:0px;
+				right:0px;
+
+				background:rgba(255,255,255,0.8);
+
+				transition: all 750ms ease;
+			}
+			body.hamburger #sidebar-second {
+				left:250px;
+				right:-250px;
+			}
+			#footer {
+				height:8rem;
+
+				text-align:center;
+
+				background:none;
+			}
+
+			/**********
+			navigation
+			**********/
+			/* main/1st menu */
+			ul.menu,
+			ul.menu ul {
+				display:inline-block;
+				height:auto;
+				margin:0;
+				padding:0;
+				position:relative;
+				width:250px;
+
+				list-style: none inside none;
+				z-index:99;
+			}
+			/* all menu item */
+			ul.menu li {
+				display:block;
+				margin:0;
+				padding:0;
+				position:relative;
+				width:100%;
+
+				list-style: none inside none;
+			}
+			/* all menu links */
+			ul.menu a, ul.menu a:visited {
+				display:block;
+				margin:0;
+				width:100%;
+				height:1.5rem;
+
+				color:#000000;
+				text-align:center;
+				text-decoration:none;
+
+				background:#26A9E1;
+
+			}
+			/* all hover links */
+			ul.menu a:hover, ul.menu a:visited:hover {
+				background:#F6931E;
+
+			}
+			/* first menu */
+			ul.menu > li {
+
+			}
+			/* second menu */
+			ul.menu > li > ul {
+
+			}
+			/*second menu links */
+			ul.menu > li > ul a {
+				background:#8BC43F;
+
+			}
+
+
+			/**********
+			social media links
+			**********/
+			a.social {
+				display:inline-block;
+				margin:5px;
+				padding:0;
+				width:32px;
+				height:32px;
+
+				background:url(image/social-media-icons-32x32.png);
+				background-size:500px 200px;
+				border-radius:3px;
+
+				overflow:hidden;
+			}
+			a.social:hover {
+				box-shadow:inset 0px 0px 5px 5px rgba(255,255,255,0.25);	
+			}
+			a.facebook {
+				background-position:0px 0px;
+			}
+			a.twitter {
+				background-position:-50px 0px;
+			}
+			a.youtube {
+				background-position:-100px 0px;
+			}
+
+			/*****************
+			elements
+			/*****************/
+			hr {
+				height:1px;
+				color:#ff0000;
+				background:#0000ff;
+			}
+
+
+			@media only screen and (max-width: 800px)
+			{
+
+			}
+
+			.left{
+				clear:none;
+				float:left;
+			}
+			.right{
+				clear:none;
+				float:right;
+			}
+			.clear-fix{
+				clear:both;
+				width:100%;
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<h1><img class="logo" src="https://logos.textgiraffe.com/logos/logo-name/Winter-designstyle-friday-m.png" alt="Winter Logo" /></h1>
+			
+			</div>
+			<div id="content">
+				<div id="sidebar-first">
+					<ul class="menu">
+						<li><a href="#" >P Link 1</a>
+							<ul>
+								<li><a href="#" >S Link 1</a></li>
+								<li><a href="#" >S Link 2</a></li>
+								<li><a href="#" >S Link 3</a></li>
+								<li><a href="#" >S Link 4</a></li>
+							</ul>
+						</li>
+						<li><a href="#" >P Link 2</a>
+							<ul>
+								<li><a href="#" >S Link 1</a></li>
+								<li><a href="#" >S Link 2</a></li>
+								<li><a href="#" >S Link 3</a></li>
+								<li><a href="#" >S Link 4</a></li>
+							</ul>
+						</li>
+						<li><a href="#" >P Link 3</a></li>
+						<li><a href="#" >P Link 4</a></li>
+					</ul>
+				</div>
+				<div id="main">
+					<div id="hamburger">&nbsp;</div>
+					<h2>Peppermint is overrated!</h2>
+					<br class="clear-fix" />
+					<p style="text-align:justify;">
+						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+					</p>
+						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+					<p>
+					</p>
+				</div>
+				<div id="sidebar-second">
+					</p>
+						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+					<p>
+				</div>
+			</div>
+			<div id="footer">CopyLeft Neathawk 2017</div>
+		</div>
+	</body>
+</html>

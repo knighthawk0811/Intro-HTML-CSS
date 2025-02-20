@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cool Full Width Layout - Single File Too!</title>
+<style type="text/css">
+#header {
+	height: 10rem;
+	
+	background:#006699;
+}
+.content {
+	min-height: 24rem;
+	
+	background:#00bbff;
+}
+#footer {
+	height: 10rem;
+	
+	background:#006699;
+}
+.spacer-bg {
+	background-color: #ff0000;
+	min-height: 20rem;
+	box-shadow: inset 0px 5px 5px -5px #000000, inset 0px -5px 5px -5px #000000;
+
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.spacer-bg.first {	
+	background-image: url(https://www.linuxclever.com/wp-content/uploads/2016/09/debian_metal_wallpaper_hd_by_malkowitch-d49egyf-990x557.jpg);
+}
+.spacer-bg.second {
+	background-image: url(https://img00.deviantart.net/93d2/i/2014/240/f/9/rainbow_paint_splatter_wallpaper_2_by_flightedbird-d7x2pyl.png);
+}
+.spacer-bg.third {
+	background-image: url(https://images4.alphacoders.com/878/8788.png);
+}
+.spacer-bg.fourth {
+	background-image: url(https://i.pinimg.com/originals/75/8b/1b/758b1bbdb15842d42d77df44dea93b78.jpg);
+}
+body {
+	padding: 0;
+	margin: 0;
+}
+</style>
+</head>
+
+<body>
+<div id="header">
+  <h1>Header / Logo</h1>
+</div>
+<div class="spacer-bg first"></div>
+<div class="content">Content Goes Here</div>
+<div class="spacer-bg second"></div>
+<div class="content">Content Goes Here</div>
+<div class="spacer-bg third"></div>
+<div class="content">Content Goes Here</div>
+<div class="spacer-bg fourth"></div>
+<div id="footer">Footer / Appendix</div>
+</body>
+</html>

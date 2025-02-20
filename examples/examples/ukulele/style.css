@@ -1,0 +1,19 @@
+@charset "utf-8";
+body {
+	text-align: center;
+}
+
+/* CSS Document */
+
+img {
+	width: 200px;
+	height: auto;
+	transition: all 500ms ease;
+}
+img:hover {
+	filter: hue-rotate(150deg);
+	transition: all 1000ms ease;
+	transform: rotate(1080deg);
+	width: 300px;
+	height: auto;
+}
