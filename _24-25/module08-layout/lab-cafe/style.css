@@ -1,0 +1,256 @@
+/*
+Description:  JavaJam theme for Classes
+Author:       Joseph Neathawk
+Author URI:   https://knighthawk0811.github.io
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl.html
+*/
+
+
+
+/*--------------------------------------------------------------
+selector {
+	layout(position)
+	
+	content(text)
+	
+	design(background)
+	
+	other(z-index)
+}
+----------------------------------------------------------------
+>>> COLORS:	  
+----------------------------------------------------------------
+	black: #221811;
+	brown-light: #b89e81;	
+	brown-dark: #d2b48c;
+
+----------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Main Structure
+# General Elements
+# Modal Navigation
+# Navigation
+# Header Area
+# Content Area
+# Footer Area
+# Reusable Classes
+# Other
+# Templates
+# Media Queries
+
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+# Main Structure
+--------------------------------------------------------------*/
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+html.not-top { 
+    display:none;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #b89e81; 
+    color: #221811; 
+    font-family: Verdana, Arial, sans-serif;
+    background-image: url(image/background.gif);
+}
+
+header, nav, main, footer { display: block; }
+
+/*--------------------------------------------------------------
+# General Elements
+--------------------------------------------------------------*/
+h1 {
+    padding-top: 45px;
+    padding-left: 220px;
+    font-size: 3em;
+}
+h4 {
+    background-color: #d2b48c;
+    font-size: 1.2em;
+    padding-left: 0.5em;
+
+    text-transform: uppercase;
+    border-bottom: 1px solid #231814;
+    padding-bottom: 0;
+    clear: left;
+}
+img {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+main h2,
+main h3,
+main h4,
+main p,
+main div,
+main ul,
+main dl {
+    padding-right: 2em;
+    padding-left: 3em;
+}
+/*--------------------------------------------------------------
+# Modal Navigation
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+nav {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-top: 10px;
+
+    float: left;
+    width: 200px;
+}
+nav a {
+    text-decoration: none;
+}
+nav a:link {
+    color: #FEF6C2;
+}
+nav a:visited {
+    color: #D2B48C;
+}
+nav a:hover {
+    color: #CC9933;
+}
+
+nav ul {
+    list-style: none inside none;
+    padding-left: 0;
+}
+/*--------------------------------------------------------------
+# Header Area
+--------------------------------------------------------------*/
+header {
+    background-color: #D2B48C;
+    height: 150px;
+    background-image: url(image/javajamlogo.jpg);
+    background-repeat: no-repeat;
+}
+/*--------------------------------------------------------------
+# Content Area
+--------------------------------------------------------------*/
+#wrapper {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 900px;
+    max-width: 1280px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    
+    background-color: #231814;
+}
+main {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 2em;
+    padding-left: 0;
+
+    margin-left: 200px;
+    background-color: #fef6c2;
+}
+
+.details {
+    padding-right: 20%;
+    padding-left: 20%;
+    overflow: auto;
+}
+/*--------------------------------------------------------------
+# Footer Area
+--------------------------------------------------------------*/
+footer {
+    background-color: #D2B48C;
+    font-size: 0.6em;
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 10px;
+    border-top: 2px solid #221811;
+}
+/*--------------------------------------------------------------
+# Reusable Classes
+--------------------------------------------------------------*/
+.floatleft {
+    float: left;
+    padding-right: 2em;
+    padding-bottom: 2em;
+}
+/*--------------------------------------------------------------
+# Other
+--------------------------------------------------------------*/
+#heroroad {
+    background-image: url(image/heroroad.jpg);
+    background-size: 100% 100%;
+    height: 250px;
+}
+#heromugs {
+    background-image: url(image/heromugs.jpg);
+    background-size: 100% 100%;
+    height: 250px;
+}
+#heroguitar {
+    background-image: url(image/heroguitar.jpg);
+    background-size: 100% 100%;
+    height: 250px;
+}
+/*--------------------------------------------------------------
+# Templates
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+
+/* for-phone-only */
+@media only screen and (max-width: 599px) {
+
+}
+
+/* for-tablet-portrait-up */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* for-tablet-portrait-only */
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+
+}
+
+/* for-tablet-landscape-up */
+@media only screen and (min-width: 900px) {
+
+}
+
+/* for-tablet-landscape-only */
+@media only screen and (min-width: 900px) and (max-width: 1199px) {
+
+}
+
+/* for-desktop-up */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/* for-desktop-only */
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+
+}
+
+/* for-big-desktop-up */
+@media only screen and (min-width: 1800px) {
+
+}
