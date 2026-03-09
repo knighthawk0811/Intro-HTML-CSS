@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Souls — My Favorite Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /*
+    ===================================================
+    REFLECTION COMMENT BLOCK
+    ===================================================
+    1. I used "header > nav a" (a combinator + descendant chain) rather than
+       just "a" to style nav links, because I only wanted those specific links
+       affected — not every anchor on the page. This avoids unintended side
+       effects on footer or in-body links.
+
+    2. I used the attribute selector a[href^="http"]:not([href*="mysite"])
+       to target off-site links without needing to add a class to every
+       external anchor manually. The HTML stays clean and the CSS does the work.
+
+    3. I chose #game-title as an ID selector for the main heading because
+       there is only ever one primary title on the page. Using an ID communicates
+       that uniqueness semantically and gives me a high-specificity hook
+       if I need to override it later.
+    ===================================================
+    */
+
+    /* ── CSS Variables ── */
+    :root {
+      --bg:        #0d0b09;
+      --surface:   #141210;
+      --border:    #3a2e22;
+      --gold:      #c9a84c;
+      --gold-dim:  #7a6230;
+      --ash:       #8a8078;
+      --bone:      #d4ccbc;
+      --ember:     #c0392b;
+      --ember-dim: #6b1f17;
+      --text:      #c8bfad;
+      --font-head: 'Cinzel', serif;
+      --font-body: 'Crimson Text', Georgia, serif;
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      line-height: 1.75;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse at 20% 0%, #1a0f0566 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, #1a090566 0%, transparent 60%);
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(180deg, #0a0806 0%, var(--surface) 100%);
+      border-bottom: 2px solid var(--border);
+      padding: 2.5rem 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: "⚔";
+      display: block;
+      font-size: 1.4rem;
+      color: var(--gold-dim);
+      margin-top: 0.5rem;
+      letter-spacing: 1rem;
+    }
+
+    /* ID selector — unique page title */
+    #game-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 40px #c9a84c55,
+        0 2px 4px #000;
+      margin-bottom: 0.25rem;
+    }
+
+    header p.subtitle {
+      font-style: italic;
+      color: var(--ash);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Descendant selector 1 — nav inside header */
+    header nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    /* Combinator: direct children of nav */
+    header > nav > a {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--bone);
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      transition: color 0.25s, border-color 0.25s, background 0.25s;
+    }
+
+    /* Pseudo-class: hover on on-site nav links */
+    header > nav > a:hover {
+      color: var(--gold);
+      border-color: var(--gold-dim);
+      background: #c9a84c11;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* Class selector — shared section card style */
+    .content-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold-dim);
+      padding: 2rem 2.2rem;
+      position: relative;
+    }
+
+    /* Descendant selector 2 — headings inside content sections */
+    .content-section h2 {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Descendant selector 3 — paragraphs inside content sections */
+    .content-section p {
+      color: var(--text);
+      margin-bottom: 0.9rem;
+    }
+
+    .content-section p:last-child { margin-bottom: 0; }
+
+    /* ── LIST SECTION ── */
+    #lore-facts {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--ember-dim);
+      padding: 2rem 2.2rem;
+    }
+
+    /* Descendant selector 4 — h2 inside the facts section */
+    #lore-facts h2 {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      color: var(--ember);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--ember-dim);
+    }
+
+    #lore-facts ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #lore-facts ul li {
+      padding: 0.75rem 1rem;
+      border-left: 3px solid var(--border);
+      font-size: 1.05rem;
+      transition: background 0.2s;
+    }
+
+    /* Pseudo-class: alternating list items using nth-of-type */
+    #lore-facts ul li:nth-of-type(odd) {
+      background: #1a160f;
+      border-left-color: var(--gold-dim);
+      color: var(--bone);
+    }
+
+    #lore-facts ul li:nth-of-type(even) {
+      background: #110d09;
+      border-left-color: var(--ember-dim);
+      color: var(--ash);
+    }
+
+    /* Adjacent sibling combinator — space between list items */
+    #lore-facts ul li + li {
+      margin-top: 0.4rem;
+    }
+
+    /* ── LINKS — ON-SITE vs OFF-SITE ── */
+
+    /* On-site links within main body content */
+    a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-decoration-color: var(--gold-dim);
+    }
+
+    a:hover {
+      color: var(--bone);
+      text-decoration-color: var(--bone);
+    }
+
+    /* Attribute selector — off-site links (have a different domain) */
+    a:not([href*="knighthawk"]) {
+      color: var(--ember);
+      text-decoration: underline;
+      text-decoration-style: dashed;
+      text-decoration-color: var(--ember-dim);
+    }
+
+    a:not([href*="knighthawk"]):hover {
+      color: #e74c3c;
+      text-decoration-color: #e74c3c;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 2px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    footer p.copyright {
+      font-size: 0.85rem;
+      color: var(--ash);
+      letter-spacing: 0.05em;
+      font-style: italic;
+    }
+
+    /*
+    !important usage explanation:
+    The footer's copyright text uses the same "p" tag as content-section p,
+    which sets color to var(--text). Because footer p.copyright is a class +
+    element selector vs. the descendant selector ".content-section p", the
+    specificity is close and order-dependent. Using !important here guarantees
+    the muted ash color applies regardless of where the rule falls in the sheet.
+    */
+    footer p.copyright {
+      color: var(--ash) !important;
+    }
+
+    /* ── DECORATIVE DIVIDER ── */
+    .divider {
+      text-align: center;
+      color: var(--gold-dim);
+      font-size: 1.2rem;
+      letter-spacing: 1.5rem;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="subtitle">TCD — CIS / Game Design &nbsp;|&nbsp; Instructor: J. Neathawk</p>
+    <h1 id="game-title">Dark Souls</h1>
+    <nav>
+      <a href="https://knighthawk0811.github.io/Intro-HTML-CSS/index.html">Home</a>
+      <a href="https://knighthawk0811.github.io/Intro-HTML-CSS/module01/index.html">Module 01</a>
+      <a href="https://knighthawk0811.github.io/Intro-HTML-CSS/module02/index.html">Module 02</a>
+      <a href="https://knighthawk0811.github.io/Intro-HTML-CSS/module03/index.html">Module 03</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="content-section">
+      <h2>About the Game</h2>
+      <p>
+        Dark Souls is an action role-playing game developed by FromSoftware and published by Bandai Namco in 2011.
+        Set in the crumbling kingdom of Lordran, the game plunges players into a dying world on the edge of an age of darkness.
+        Unlike most games of its era, Dark Souls tells its story almost entirely through item descriptions, environmental details,
+        and cryptic NPC dialogue — rewarding players who pay close attention and punishing those who don't.
+      </p>
+      <p>
+        The world is interconnected in a way that was revolutionary at the time. Areas loop back on themselves, shortcuts
+        unlock gradually, and the geography rewards exploration far more than any waypoint marker ever could.
+        If you're new to the series and want to learn more before diving in, check out the community at
+        <a href="https://www.reddit.com/r/darksouls">r/darksouls</a> or the comprehensive
+        <a href="https://darksouls.wiki.fextralife.com">Fextralife Wiki</a>.
+      </p>
+    </section>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <section class="content-section">
+      <h2>Why I Love It</h2>
+      <p>
+        Dark Souls taught me patience. Every death is a lesson, not a punishment. The game never explains its mechanics
+        beyond the barest minimum, which means every discovery — a shortcut, a hidden weapon, a boss weakness — feels
+        genuinely earned. There is no handholding, no difficulty slider, and no apology for being hard.
+      </p>
+      <p>
+        The design philosophy behind Dark Souls influenced an entire generation of games.
+        Titles like Hollow Knight, Sekiro, Elden Ring, and dozens of others owe a significant debt to the framework
+        FromSoftware built here. Playing it now, years after release, still holds up — both mechanically and atmospherically.
+        The sense of loneliness and quiet dread it creates is unmatched. You can read more about its legacy on
+        <a href="https://en.wikipedia.org/wiki/Dark_Souls">Wikipedia</a>.
+      </p>
+      <p>
+        More than anything, it respects the player's intelligence. It assumes you can figure things out.
+        That alone makes it stand apart from nearly every other game I've played.
+      </p>
+    </section>
+
+    <div class="divider">✦ ✦ ✦</div>
+
+    <section id="lore-facts">
+      <h2>6 Things You Should Know About Dark Souls</h2>
+      <ul>
+        <li>The game was directed by Hidetaka Miyazaki, who nearly quit game development before FromSoftware hired him.</li>
+        <li>Death is a core mechanic — you drop your souls (currency/XP) on death and must retrieve them before dying again.</li>
+        <li>The entire world is one connected map with no loading screens between most areas.</li>
+        <li>Nearly every NPC has a questline that can fail silently if you do things in the wrong order.</li>
+        <li>The lore is never told directly — it is pieced together through item descriptions, boss names, and world design.</li>
+        <li>The game's infamous difficulty is intentional: Miyazaki wanted players to feel the triumph of overcoming adversity.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://knighthawk0811.github.io/Intro-HTML-CSS/index.html">Home</a>
+      <a href="https://www.fromsoftware.jp">FromSoftware Official</a>
+      <a href="https://darksouls.wiki.fextralife.com">Fextralife Wiki</a>
+      <a href="https://en.wikipedia.org/wiki/Dark_Souls">Wikipedia</a>
+    </div>
+    <p class="copyright">&copy; 2025 — TCD CIS / Game Design &nbsp;|&nbsp; J. Neathawk &nbsp;|&nbsp; Module 05 Assignment</p>
+  </footer>
+
+</body>
+</html>
+
