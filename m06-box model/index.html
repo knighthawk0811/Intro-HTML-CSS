@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Model</title>
+
+    <style>
+        /*
+
+        /* ── CSS Variables ── */
+        :root {
+            --background:#eeeeee;
+            --foreground:#006dfc;
+            --main-bg   :#eaf78e;
+            --text:      #c8bfad;
+            --text-foreground:      #ffffff;
+            --font-main: Georgia, serif;
+        }
+
+        /* ── Reset & Base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: var(--font-main);
+            font-size: 1.15rem;
+            line-height: 1.75;
+            min-height: 100vh;
+            background-image:
+            radial-gradient(ellipse at 20% 0%, #1a0f0566 0%, transparent 60%),
+            radial-gradient(ellipse at 80% 100%, #1a090566 0%, transparent 60%);
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: linear-gradient(180deg, #0a0806 0%, var(--foreground) 100%);
+            color: var(--text-foreground);
+            border-bottom: 2px solid var(--border);
+            padding: 2.5rem 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            min-height: 20vh;
+        }
+
+
+        /* ── MAIN ── */
+        .primary {
+            background-color: var(--main-bg);
+            width: 580px;
+            margin: 0 auto;
+            padding: 0;
+            min-height: 70vh;
+            /*overflow: hidden;*/
+        }
+        .box{
+            display: block;
+            height: auto;
+            background: rgba(85, 204, 103, 1);
+            padding: 20px;
+            border: 30px solid grey;
+            margin: 40px;
+        }
+
+        .secondary{            
+            background-color: var(--main-bg);
+            width: 660px;
+            margin: 1rem auto;
+            padding: 0;
+            overflow: hidden;
+        }
+        .box-float{
+            float: left;
+            height: auto;
+            width: 250px;
+            background: rgba(85, 204, 103, 1);
+            padding: 20px;
+            border: 30px solid grey;
+            margin: 40px;
+        }
+
+        svg {
+            display: block;
+        }
+        
+
+        /* ── FOOTER ── */
+        footer {
+        background: var(--foreground);
+        color: var(--text-foreground);
+        border-top: 2px solid var(--border);
+        padding: 2rem;
+        text-align: center;
+        min-height: 20vh;
+        clear: both;
+        }
+
+        footer .copyright {
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        font-style: italic;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="title">Box Model</h1>
+    </header>
+
+    <div class="primary">
+
+        <div class="box"><svg viewBox="0 0 400 200" width="400" height="200">
+                <rect width="400" height="200" fill="#3265a8" stroke-width="0"/>
+                <text x="200" y="100" text-anchor="middle" dominant-baseline="middle">
+                Content Area
+                </text>
+            </svg></div>
+        <div class="box"><svg viewBox="0 0 400 200" width="400" height="200">
+            <rect width="400" height="200" fill="#3265a8" stroke-width="0"/>
+            <text x="200" y="100" text-anchor="middle" dominant-baseline="middle">
+            Content Area
+            </text>
+        </svg></div>
+
+    </div>
+    <div class="secondary">
+        <div class="box-float"><svg viewBox="0 0 150 100" width="150" height="100">
+                <rect width="150" height="100" fill="#3265a8" stroke-width="0"/>
+                <text x="75" y="50" text-anchor="middle" dominant-baseline="middle">
+                Content Area
+                </text>
+            </svg></div>
+        <div class="box-float"><svg viewBox="0 0 150 100" width="150" height="100">
+                <rect width="150" height="100" fill="#3265a8" stroke-width="0"/>
+                <text x="75" y="50" text-anchor="middle" dominant-baseline="middle">
+                Content Area
+                </text>
+            </svg></div>
+        <div class="box-float"><svg viewBox="0 0 150 100" width="150" height="100">
+                <rect width="150" height="100" fill="#3265a8" stroke-width="0"/>
+                <text x="75" y="50" text-anchor="middle" dominant-baseline="middle">
+                Content Area
+                </text>
+            </svg></div>
+        <div class="box-float"><svg viewBox="0 0 150 100" width="150" height="100">
+                <rect width="150" height="100" fill="#3265a8" stroke-width="0"/>
+                <text x="75" y="50" text-anchor="middle" dominant-baseline="middle">
+                Content Area
+                </text>
+            </svg></div>
+        <div class="box-float"><svg viewBox="0 0 150 100" width="150" height="100">
+                <rect width="150" height="100" fill="#3265a8" stroke-width="0"/>
+                <text x="75" y="50" text-anchor="middle" dominant-baseline="middle">
+                Content Area
+                </text>
+            </svg></div>
+        <div class="box-float"><svg viewBox="0 0 150 100" width="150" height="100">
+                <rect width="150" height="100" fill="#3265a8" stroke-width="0"/>
+                <text x="75" y="50" text-anchor="middle" dominant-baseline="middle">
+                Content Area
+                </text>
+            </svg></div>
+    </div>
+
+    <footer>
+        <p class="copyright">&copy; 2026 — TCD CIS / Game Design &nbsp;|&nbsp; J. Neathawk &nbsp;|&nbsp; Module 06 Assignment</p>
+    </footer>
+
+</body>
+</html>
+
